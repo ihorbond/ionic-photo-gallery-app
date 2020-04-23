@@ -13,10 +13,18 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+<ion-grid>
+  <ion-row>
+    <ion-col size="6" *ngFor="let photo of photoService.photos; index as position">
+      <ion-img src="{{ photo.webViewPath }}"></ion-img>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+  <!-- <app-explore-container name="Tab 2 page"></app-explore-container> -->
 
   <ion-fab vertical="bottom" horizontal="center" slot="fixed">
-    <ion-fab-button>
+    <ion-fab-button (click)="photoService.addNewToGallery()">
       <ion-icon name="camera"></ion-icon>
     </ion-fab-button>
   </ion-fab>
